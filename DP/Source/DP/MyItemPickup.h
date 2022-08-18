@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Components/StaticMeshComponent.h"
 #include "MyItemPickup.generated.h"
 
 UCLASS()
@@ -23,4 +24,14 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	void Interacted();
+
+	bool GetActive();
+
+private:
+	UPROPERTY()
+	bool active;
+
+	UPROPERTY(VisibleAnywhere, Category = "Mesh")
+	class UStaticMeshComponent* mesh; 
 };

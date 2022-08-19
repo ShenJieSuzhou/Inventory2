@@ -7,6 +7,7 @@
 #include "Components/SphereComponent.h"
 #include "Animation/SkeletalMeshActor.h"
 #include "MyItemPickup.h"
+#include "MyBagWidget.h"
 #include "DPCharacter.generated.h"
 
 UCLASS(config=Game)
@@ -75,11 +76,15 @@ public:
 
 private:
 	void Interact();
+	
+	void OpenBag();
 
 	UPROPERTY(EditAnywhere, Category = "Pickup", meta = (AllowPrivateAccess = true))
 	USphereComponent* collectionRange;
 
 	UPROPERTY(EditAnywhere, Category = "Pickup")
 	ASkeletalMeshActor* wielded;
+
+	UMyBagWidget* MyBagUI;
 };
 

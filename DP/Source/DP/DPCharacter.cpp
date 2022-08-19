@@ -46,6 +46,12 @@ ADPCharacter::ADPCharacter()
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
 
+	// Init MyBag Widget
+	FString WidgetMyBagLoadPath = FString(TEXT("/Game/UI/MyBag.MyBagC"));
+
+	TSubclassOf<UMyBagWidget> MyBagWidgetClass = LoadClass<UMyBagWidget>(NULL, *WidgetMyBagLoadPath);
+	MyBagUI = CreateWidget<UMyBagWidget>(GetWorld(), MyBagWidgetClass);
+	
 
 	collectionRange = CreateDefaultSubobject<USphereComponent>(TEXT("CollectionRange"));
 	collectionRange->AttachTo(RootComponent);
@@ -92,6 +98,8 @@ void ADPCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputC
 	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &ADPCharacter::OnResetVR);
 
 	PlayerInputComponent->BindAction("Pickup", IE_Pressed, this, &ADPCharacter::Interact);
+	
+	PlayerInputComponent->BindAction("OpenBag", IE_Pressed, this, &ADPCharacter::Interact);
 }
 
 
@@ -111,6 +119,14 @@ void ADPCharacter::Interact()
 				wielded->SetActorHiddenInGame(false);
 			}
 		}
+	}
+}
+
+void ADPCharacter::OpenBag()
+{
+	if (MyBagUI != nullptr)
+	{
+		MyBagUI->AddToViewport();
 	}
 }
 

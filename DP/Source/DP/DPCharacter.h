@@ -4,6 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "Components/SphereComponent.h"
+#include "Animation/SkeletalMeshActor.h"
+#include "MyItemPickup.h"
 #include "DPCharacter.generated.h"
 
 UCLASS(config=Game)
@@ -59,6 +62,7 @@ protected:
 	void TouchStopped(ETouchIndex::Type FingerIndex, FVector Location);
 
 protected:
+	virtual void BeginPlay() override;
 	// APawn interface
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	// End of APawn interface
@@ -68,5 +72,14 @@ public:
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
 	/** Returns FollowCamera subobject **/
 	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
+
+private:
+	void Interact();
+
+	UPROPERTY(EditAnywhere, Category = "Pickup", meta = (AllowPrivateAccess = true))
+	USphereComponent* collectionRange;
+
+	UPROPERTY(EditAnywhere, Category = "Pickup")
+	ASkeletalMeshActor* wielded;
 };
 

@@ -45,7 +45,23 @@ ADPCharacter::ADPCharacter()
 
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
+
+
+	collectionRange = CreateDefaultSubobject<USphereComponent>(TEXT("CollectionRange"));
+	collectionRange->AttachTo(RootComponent);
+	collectionRange->SetSphereRadius(100.0f);
 }
+
+void ADPCharacter::BeginPlay()
+{
+	Super::BeginPlay();
+
+	if(wielded)
+	{
+		wielded->SetActorHiddenInGame(true);
+	}
+}
+
 
 //////////////////////////////////////////////////////////////////////////
 // Input
@@ -74,8 +90,29 @@ void ADPCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputC
 
 	// VR headset functionality
 	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &ADPCharacter::OnResetVR);
+
+	PlayerInputComponent->BindAction("Pickup", IE_Pressed, this, &ADPCharacter::Interact);
 }
 
+
+void ADPCharacter::Interact()
+{
+	TArray<AActor*> inRangeItems;
+	collectionRange->GetOverlappingActors(inRangeItems);
+
+	for(int i = 0; i < inRangeItems.Num(); i++)
+	{
+		AMyItemPickup* const item = Cast<AMyItemPickup>(inRangeItems[i]);
+		if(item && item->GetActive())
+		{
+			item->Interacted();
+			if(wielded)
+			{
+				wielded->SetActorHiddenInGame(false);
+			}
+		}
+	}
+}
 
 void ADPCharacter::OnResetVR()
 {

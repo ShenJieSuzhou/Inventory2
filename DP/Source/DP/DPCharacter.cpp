@@ -99,7 +99,7 @@ void ADPCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputC
 
 	PlayerInputComponent->BindAction("Pickup", IE_Pressed, this, &ADPCharacter::Interact);
 	
-	PlayerInputComponent->BindAction("OpenBag", IE_Pressed, this, &ADPCharacter::Interact);
+	PlayerInputComponent->BindAction("OpenBag", IE_Pressed, this, &ADPCharacter::OpenBag);
 }
 
 

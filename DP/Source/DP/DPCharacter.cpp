@@ -46,7 +46,13 @@ ADPCharacter::ADPCharacter()
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
 
+	// Init MyBag Widget
+	FString WidgetMyBagLoadPath = FString(TEXT("/Game/UI/MyBag.MyBagC"));
+
+	TSubclassOf<UMyBagWidget> MyBagWidgetClass = LoadClass<UMyBagWidget>(NULL, *WidgetMyBagLoadPath);
+	MyBagUI = CreateWidget<UMyBagWidget>(GetWorld(), MyBagWidgetClass);
 	
+
 	collectionRange = CreateDefaultSubobject<USphereComponent>(TEXT("CollectionRange"));
 	collectionRange->AttachTo(RootComponent);
 	collectionRange->SetSphereRadius(100.0f);
@@ -55,12 +61,6 @@ ADPCharacter::ADPCharacter()
 void ADPCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-
-	// Init MyBag Widget
-	FString WidgetMyBagLoadPath = FString(TEXT("/Game/UI/MyBag.MyBag_C"));
-
-	TSubclassOf<UMyBagWidget> MyBagWidgetClass = LoadClass<UMyBagWidget>(NULL, *WidgetMyBagLoadPath);
-	MyBagUI = CreateWidget<UMyBagWidget>(GetWorld(), MyBagWidgetClass);
 
 	if(wielded)
 	{

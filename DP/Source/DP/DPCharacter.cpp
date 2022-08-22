@@ -9,6 +9,7 @@
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Runtime/Engine/Classes/Kismet/GameplayStatics.h"
+#include "Item.h"
 
 //////////////////////////////////////////////////////////////////////////
 // ADPCharacter
@@ -47,12 +48,23 @@ ADPCharacter::ADPCharacter()
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
 
+	Inventory = CreateDefaultSubobject<UDPInventoryComponent>(TEXT("Inventory"));
+	Inventory->Capacity = 20;
 	
-	
-
+	Health = 100.f;
+	 
 	collectionRange = CreateDefaultSubobject<USphereComponent>(TEXT("CollectionRange"));
 	collectionRange->AttachTo(RootComponent);
 	collectionRange->SetSphereRadius(100.0f);
+}
+
+void ADPCharacter::UseItem(class UItem* Item)
+{
+	if(Item)
+	{
+		Item->Use(this);
+		Item->OnUse(this);
+	}
 }
 
 void ADPCharacter::BeginPlay()

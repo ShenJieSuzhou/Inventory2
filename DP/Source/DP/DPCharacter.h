@@ -8,6 +8,7 @@
 #include "Animation/SkeletalMeshActor.h"
 #include "MyItemPickup.h"
 #include "MyBagWidget.h"
+#include "DPInventoryComponent.h"
 #include "DPCharacter.generated.h"
 
 UCLASS(config=Game)
@@ -22,6 +23,10 @@ class ADPCharacter : public ACharacter
 	/** Follow camera */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class UCameraComponent* FollowCamera;
+
+	// Inventory
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
+	class UDPInventoryComponent* Inventory;
 public:
 	ADPCharacter();
 
@@ -32,6 +37,12 @@ public:
 	/** Base look up/down rate, in deg/sec. Other scaling may affect final rate. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseLookUpRate;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Health")
+	float Health;
+
+	UFUNCTION(BlueprintCallable, Category = "Items")
+	void UseItem(class UItem* Item);
 
 protected:
 

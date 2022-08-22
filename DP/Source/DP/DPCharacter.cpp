@@ -129,9 +129,10 @@ void ADPCharacter::OpenBag()
 {
 	if (MyBagUI != nullptr)
 	{
+		if(MyBagUI->IsInViewport() == false){
+			MyBagUI->AddToViewport();
+		}
 		
-		MyBagUI->AddToViewport();
-
 		APlayerController* playerController = UGameplayStatics::GetPlayerController(GetWorld(), 0);
 		playerController->bShowMouseCursor = true;
 	}

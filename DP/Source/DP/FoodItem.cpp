@@ -10,7 +10,4 @@ void UFoodItem::Use(class ADPCharacter* Character)
 	{
 		Character->Health += HealthToHeal;
 	}
-
-
-
 }

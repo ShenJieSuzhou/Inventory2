@@ -9,7 +9,7 @@
 /**
  * 
  */
-UCLASS(Abstract, BlueprintType, Blueprintable, EditInlineNew, DefaultToInstanced)
+UCLASS(Abstract, BlueprintType, Blueprintable, EditInlineNew, DefaultToInstanced) 
 class DP_API UItem : public UObject
 {
 	GENERATED_BODY()
@@ -26,7 +26,7 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Item")
 	FText UseActionText;
 
-	// The mesh to display for this items pickup
+	// The mesh to display for this items pickup  
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Item")
 	class UStaticMesh* PickupMesh;
 
@@ -50,7 +50,7 @@ public:
 	UPROPERTY()
 	class UDPInventoryComponent* OwningInventory;
 
-	virtual void Use(class ADPCharacter* Character) PURE_VIRTUAL(UItem, )
+	virtual void Use(class ADPCharacter* Character) PURE_VIRTUAL(UItem, );
 
 	UFUNCTION(BlueprintImplementableEvent)
 	void OnUse(class ADPCharacter* Character);

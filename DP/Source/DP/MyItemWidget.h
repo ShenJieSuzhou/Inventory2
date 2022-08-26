@@ -4,7 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
-//#include "Compon"
+#include "Components/Button.h"
+#include "Components/Image.h"
+#include "Components/TextBlock.h"
 #include "MyItemWidget.generated.h"
 
 /**
@@ -15,6 +17,13 @@ class DP_API UMyItemWidget : public UUserWidget
 {
 	GENERATED_BODY()
 
+	UPROPERTY(Meta = (BindWidget))
+	UButton* UseButton;
 
-	
+	UPROPERTY(Meta = (BindWidget))
+	UImage* Thumbnail;
+
+	UPROPERTY(Meta = (BindWidget))
+	UTextBlock* ItemName;
+
 };

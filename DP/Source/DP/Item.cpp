@@ -10,8 +10,3 @@ UItem::UItem()
 	UseActionText = FText::FromString("Use");
 
 }
-
-//void UItem::OnUse(class ADPCharacter* Character)
-//{
-//	
-//}

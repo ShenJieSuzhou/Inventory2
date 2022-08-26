@@ -50,7 +50,7 @@ public:
 	UPROPERTY()
 	class UDPInventoryComponent* OwningInventory;
 
-	virtual void Use(class ADPCharacter* Character) PURE_VIRTUAL(UItem, );
+	virtual void Use(class ADPCharacter* Character) PURE_VIRTUAL(UItem, )
 
 	UFUNCTION(BlueprintImplementableEvent)
 	void OnUse(class ADPCharacter* Character);

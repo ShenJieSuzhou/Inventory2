@@ -3,3 +3,9 @@
 
 #include "MyItemWidget.h"
 
+//void UMyItemWidget::BeginPlay()
+//{
+//	Super::BeginPlay();
+//
+//
+//}

@@ -7,6 +7,7 @@
 #include "Components/Button.h"
 #include "Components/Image.h"
 #include "Components/TextBlock.h"
+#include "Item.h"
 #include "MyItemWidget.generated.h"
 
 /**
@@ -17,6 +18,10 @@ class DP_API UMyItemWidget : public UUserWidget
 {
 	GENERATED_BODY()
 
+protected:
+	//virtual void BeginPlay() override;
+
+public:
 	UPROPERTY(Meta = (BindWidget))
 	UButton* UseButton;
 
@@ -26,4 +31,6 @@ class DP_API UMyItemWidget : public UUserWidget
 	UPROPERTY(Meta = (BindWidget))
 	UTextBlock* ItemName;
 
+	UPROPERTY()
+	UItem *Item;
 };

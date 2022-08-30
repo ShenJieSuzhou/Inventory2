@@ -18,8 +18,11 @@ class DP_API UMyItemWidget : public UUserWidget
 {
 	GENERATED_BODY()
 
-protected:
-	//virtual void BeginPlay() override;
+public:
+	virtual void NativeConstruct() override;
+
+	UFUNCTION()
+	void OnUseItem();
 
 public:
 	UPROPERTY(Meta = (BindWidget))
@@ -29,8 +32,8 @@ public:
 	UImage* Thumbnail;
 
 	UPROPERTY(Meta = (BindWidget))
-	UTextBlock* ItemName;
+	UTextBlock* ItemName; 
 
-	UPROPERTY()
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Item", Meta = (ExposeOnSpawn = true, InstanceEditable = true))
 	UItem *Item;
 };

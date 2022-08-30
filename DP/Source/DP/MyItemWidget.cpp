@@ -7,12 +7,31 @@ void UMyItemWidget::NativeConstruct()
 {
 	Super::NativeConstruct();
 
-	//// ÉèÖÃ UI 
-	Thumbnail->SetBrushFromTexture(Item->Thumbnail, true);
-	ItemName->SetText(Item->ItemDisplayName);
+	// ÉèÖÃ UI
+	if (nullptr != Thumbnail)
+	{
+		Thumbnail->SetBrushFromTexture(Item->Thumbnail, true);
+	}
 
-	UseButton->OnClicked.AddDynamic(this, &UMyItemWidget::OnUseItem);
-	UE_LOG(LogTemp, Warning, TEXT("NativeConstruct"));
+	if (nullptr != ItemName)
+	{
+		ItemName->SetText(Item->ItemDisplayName);
+	}
+}
+
+bool UMyItemWidget::Initialize()
+{
+	if(!Super::Initialize())
+	{
+		return false;
+	}
+
+	if (nullptr != UseButton)
+	{
+		UseButton->OnClicked.__Internal_AddDynamic(this, &UMyItemWidget::OnUseItem, FName("OnUseItem"));
+	}
+
+	return true;
 }
 
 void UMyItemWidget::OnUseItem()

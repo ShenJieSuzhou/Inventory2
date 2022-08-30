@@ -21,18 +21,20 @@ class DP_API UMyItemWidget : public UUserWidget
 public:
 	virtual void NativeConstruct() override;
 
+	virtual bool Initialize() override;
+
 	UFUNCTION()
 	void OnUseItem();
 
 public:
-	UPROPERTY(Meta = (BindWidget))
-	UButton* UseButton;
+	UPROPERTY(Meta=(BindWidget))
+	class UButton* UseButton;
 
-	UPROPERTY(Meta = (BindWidget))
-	UImage* Thumbnail;
+	UPROPERTY(Meta=(BindWidget))
+	class UImage* Thumbnail;
 
-	UPROPERTY(Meta = (BindWidget))
-	UTextBlock* ItemName; 
+	UPROPERTY(Meta=(BindWidget))
+	class UTextBlock* ItemName; 
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Item", Meta = (ExposeOnSpawn = true, InstanceEditable = true))
 	UItem *Item;

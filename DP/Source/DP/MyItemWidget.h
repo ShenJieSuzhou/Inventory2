@@ -40,10 +40,10 @@ public:
 	AActor* ItemClass;
 
 	UPROPERTY()
-	Integer CurrentStack;
+	int CurrentStack;
 
 	UPROPERTY()
-	Integer MaxStack;
+	int MaxStack;
 
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Item", Meta = (ExposeOnSpawn = true, InstanceEditable = true))

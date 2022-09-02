@@ -96,6 +96,7 @@ private:
 	UPROPERTY(EditAnywhere, Category = "Pickup")
 	ASkeletalMeshActor* wielded;
 
+	//UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Pickup")
 	UMyBagWidget* MyBagUI;
 };
 

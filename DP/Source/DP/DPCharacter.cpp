@@ -146,6 +146,7 @@ void ADPCharacter::OpenBag()
 		}
 		
 		APlayerController* playerController = UGameplayStatics::GetPlayerController(GetWorld(), 0);
+		//playerController->SetInputMode()
 		playerController->bShowMouseCursor = true;
 	}
 }

@@ -35,6 +35,16 @@ public:
 
 	UPROPERTY(Meta=(BindWidget))
 	class UTextBlock* ItemName; 
+	
+	UPROPERTY()
+	AActor* ItemClass;
+
+	UPROPERTY()
+	Integer CurrentStack;
+
+	UPROPERTY()
+	Integer MaxStack;
+
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Item", Meta = (ExposeOnSpawn = true, InstanceEditable = true))
 	UItem *Item;

@@ -27,6 +27,10 @@ class ADPCharacter : public ACharacter
 	// Inventory
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class UDPInventoryComponent* Inventory;
+
+	//UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Pickup")
+	//UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Pickup", meta = (AllowPrivateAccess = "true"))
+	
 public:
 	ADPCharacter();
 
@@ -40,6 +44,8 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Health")
 	float Health;
+
+	//UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Invento")
 
 	UFUNCTION(BlueprintCallable, Category = "Items")
 	void UseItem(class UItem* Item);
@@ -96,7 +102,7 @@ private:
 	UPROPERTY(EditAnywhere, Category = "Pickup")
 	ASkeletalMeshActor* wielded;
 
-	//UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Pickup")
+	UPROPERTY()
 	UMyBagWidget* MyBagUI;
 };
 

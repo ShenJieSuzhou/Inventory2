@@ -76,11 +76,11 @@ void ADPCharacter::BeginPlay()
 		wielded->SetActorHiddenInGame(true);
 	}
 
-	// Init MyBag Widget
-	FString WidgetMyBagLoadPath = FString(TEXT("/Game/UI/MyBag.MyBag_C"));
+	//// Init MyBag Widget
+	//FString WidgetMyBagLoadPath = FString(TEXT("/Game/UI/MyBag.MyBag_C"));
 
-	TSubclassOf<UMyBagWidget> MyBagWidgetClass = LoadClass<UMyBagWidget>(NULL, *WidgetMyBagLoadPath);
-	MyBagUI = CreateWidget<UMyBagWidget>(GetWorld(), MyBagWidgetClass);
+	//TSubclassOf<UMyBagWidget> MyBagWidgetClass = LoadClass<UMyBagWidget>(NULL, *WidgetMyBagLoadPath);
+	//MyBagUI = CreateWidget<UMyBagWidget>(GetWorld(), MyBagWidgetClass);
 }
 
 
@@ -112,43 +112,43 @@ void ADPCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputC
 	// VR headset functionality
 	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &ADPCharacter::OnResetVR);
 
-	PlayerInputComponent->BindAction("Pickup", IE_Pressed, this, &ADPCharacter::Interact);
+	//PlayerInputComponent->BindAction("Pickup", IE_Pressed, this, &ADPCharacter::Interact);
 	
-	PlayerInputComponent->BindAction("OpenBag", IE_Pressed, this, &ADPCharacter::OpenBag);
+	//PlayerInputComponent->BindAction("OpenBag", IE_Pressed, this, &ADPCharacter::OpenBag);
 }
 
 
 void ADPCharacter::Interact()
 {
-	TArray<AActor*> inRangeItems;
-	collectionRange->GetOverlappingActors(inRangeItems);
+	//TArray<AActor*> inRangeItems;
+	//collectionRange->GetOverlappingActors(inRangeItems);
 
-	for(int i = 0; i < inRangeItems.Num(); i++)
-	{
-		AMyItemPickup* const item = Cast<AMyItemPickup>(inRangeItems[i]);
-		if(item && item->GetActive())
-		{
-			item->Interacted();
-			if(wielded)
-			{
-				wielded->SetActorHiddenInGame(false);
-			}
-		}
-	}
+	//for(int i = 0; i < inRangeItems.Num(); i++)
+	//{
+	//	AMyItemPickup* const item = Cast<AMyItemPickup>(inRangeItems[i]);
+	//	if(item && item->GetActive())
+	//	{
+	//		item->Interacted();
+	//		if(wielded)
+	//		{
+	//			wielded->SetActorHiddenInGame(false);
+	//		}
+	//	}
+	//}
 }
 
 void ADPCharacter::OpenBag()
 {
-	if (MyBagUI != nullptr)
-	{
-		if(MyBagUI->IsInViewport() == false){
-			MyBagUI->AddToViewport();
-		}
-		
-		APlayerController* playerController = UGameplayStatics::GetPlayerController(GetWorld(), 0);
-		//playerController->SetInputMode()
-		playerController->bShowMouseCursor = true;
-	}
+	//if (MyBagUI != nullptr)
+	//{
+	//	if(MyBagUI->IsInViewport() == false){
+	//		MyBagUI->AddToViewport();
+	//	}
+	//	
+	//	APlayerController* playerController = UGameplayStatics::GetPlayerController(GetWorld(), 0);
+	//	//playerController->SetInputMode()
+	//	playerController->bShowMouseCursor = true;
+	//}
 }
 
 void ADPCharacter::OnResetVR()

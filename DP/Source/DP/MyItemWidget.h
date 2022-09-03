@@ -18,34 +18,33 @@ class DP_API UMyItemWidget : public UUserWidget
 {
 	GENERATED_BODY()
 
-public:
-	virtual void NativeConstruct() override;
-
-	virtual bool Initialize() override;
-
-	UFUNCTION()
-	void OnUseItem();
-
-public:
-	UPROPERTY(Meta=(BindWidget))
-	class UButton* UseButton;
-
-	UPROPERTY(Meta=(BindWidget))
-	class UImage* Thumbnail;
-
-	UPROPERTY(Meta=(BindWidget))
-	class UTextBlock* ItemName; 
-	
-	UPROPERTY()
-	AActor* ItemClass;
-
-	UPROPERTY()
-	int CurrentStack;
-
-	UPROPERTY()
-	int MaxStack;
-
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Item", Meta = (ExposeOnSpawn = true, InstanceEditable = true))
-	UItem *Item;
+//public:
+//	virtual void NativeConstruct() override;
+//
+//	virtual bool Initialize() override;
+//
+//	UFUNCTION()
+//	void OnUseItem();
+//
+//public:
+//	UPROPERTY(Meta=(BindWidget))
+//	class UButton* UseButton;
+//
+//	UPROPERTY(Meta=(BindWidget))
+//	class UImage* Thumbnail;
+//
+//	UPROPERTY(Meta=(BindWidget))
+//	class UTextBlock* ItemName; 
+//	
+//	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Item")
+//	AActor* ItemClass;
+//
+//	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Item")
+//	int CurrentStack;
+//
+//	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Item")
+//	int MaxStack;
+//
+//	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Item", Meta = (ExposeOnSpawn = true, InstanceEditable = true))
+//	UItem *Item;
 };

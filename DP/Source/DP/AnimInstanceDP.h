@@ -22,6 +22,9 @@ public:
 	float movementSpeed;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	float direction;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	bool EnableJump;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)

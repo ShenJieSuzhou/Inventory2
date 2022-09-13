@@ -11,6 +11,7 @@ void UAnimInstanceDP::UpdateAnimationProperties()
 	if(PlayerRef)
 	{
 		movementSpeed = PlayerRef->GetVelocity().Size();
+		direction = this->CalculateDirection(PlayerRef->GetVelocity(), PlayerRef->GetActorRotation());
 		EnableJump = PlayerRef->GetMovementComponent()->IsFalling();
 	}
 }

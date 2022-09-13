@@ -8,5 +8,4 @@ UItem::UItem()
 	Weight = 1.f;
 	ItemDisplayName = FText::FromName("Item");
 	UseActionText = FText::FromString("Use");
-
 }

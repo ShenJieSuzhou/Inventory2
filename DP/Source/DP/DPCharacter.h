@@ -8,6 +8,7 @@
 #include "Animation/SkeletalMeshActor.h"
 #include "MyItemPickup.h"
 #include "MyBagWidget.h"
+#include "HealthWidget.h"
 #include "DPInventoryComponent.h"
 #include "DPCharacter.generated.h"
 
@@ -103,6 +104,6 @@ private:
 	ASkeletalMeshActor* wielded;
 
 	UPROPERTY()
-	UMyBagWidget* MyBagUI;
+	UHealthWidget* HealthBarUI;
 };
 

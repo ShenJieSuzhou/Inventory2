@@ -22,18 +22,16 @@ bool UHealthWidget::Initialize()
 
 void UHealthWidget::TestLoadEvent()
 {
-	// ¿ªÆô¶¨Ê±Æ÷
-	FTimerManager &timerManager = GetWorld()->GetTimerManager();
-	timerManager.SetTimer(MemberTimerHandle, this, &UHealthWidget::Repeating, 2.0f, true, 5.0f);
+	FTimerManager& timerManager = GetWorld()->GetTimerManager();
+	timerManager.SetTimer(MemberTimerHandle, this, &UHealthWidget::Repeating, 2.0f, true, 0);
 }
 
 void UHealthWidget::Repeating()
 {
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("11111111"));
-	pValue += 5.0f;
+	pValue += 2.0f;
 	if(pValue > 100)
 	{
-		//timerManager.ClearTimer(MemberTimerHandle);
+		GetWorld()->GetTimerManager().ClearTimer(MemberTimerHandle);
 		return;
 	}
 	HealthProgressBar->SetPercent(pValue/100);

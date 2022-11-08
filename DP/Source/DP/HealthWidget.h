@@ -25,7 +25,6 @@ public:
 
 	void Repeating();
 
-
 public:
 	UPROPERTY(Meta = (BindWidget))
 	UProgressBar *HealthProgressBar;
@@ -37,5 +36,4 @@ public:
 	float pValue;
 
 	FTimerHandle MemberTimerHandle;
-	//const FTimerManager &timerManager;
 };

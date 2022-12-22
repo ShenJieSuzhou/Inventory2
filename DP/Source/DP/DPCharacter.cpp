@@ -83,10 +83,10 @@ void ADPCharacter::BeginPlay()
 	//MyBagUI = CreateWidget<UMyBagWidget>(GetWorld(), MyBagWidgetClass);
 
 	// Add HealthBar Widget
-	FString WidgetHealthBarLoadPath = FString(TEXT("/Game/UI/Health_Widget.Health_Widget_C"));
-	TSubclassOf<UHealthWidget> HealthBarWidgetClass = LoadClass<UHealthWidget>(NULL, *WidgetHealthBarLoadPath);
-	HealthBarUI = CreateWidget<UHealthWidget>(GetWorld(), HealthBarWidgetClass);
-	HealthBarUI->AddToViewport();
+	//FString WidgetHealthBarLoadPath = FString(TEXT("/Game/UI/Health_Widget.Health_Widget_C"));
+	//TSubclassOf<UHealthWidget> HealthBarWidgetClass = LoadClass<UHealthWidget>(NULL, *WidgetHealthBarLoadPath);
+	//HealthBarUI = CreateWidget<UHealthWidget>(GetWorld(), HealthBarWidgetClass);
+	//HealthBarUI->AddToViewport();
 }
 
 
